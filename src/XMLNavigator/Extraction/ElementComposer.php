@@ -14,12 +14,12 @@ class ElementComposer
     {
         $first = [];
         if ($elems) {
-            reset($elems);
-            $first = current($elems);
+            \reset($elems);
+            $first = \current($elems);
         }
         $base = 0;
         if ($first) {
-            $base = current($first)[ElementExtractor::DEPTH];
+            $base = \current($first)[ElementExtractor::DEPTH];
         }
 
         return $base;

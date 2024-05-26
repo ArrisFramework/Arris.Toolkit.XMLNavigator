@@ -45,7 +45,7 @@ class ElementExtractor
             $tryRead = $reader->read();
         }
         while ($tryRead && $reader->depth > $base) {
-            $isAllowed = in_array(
+            $isAllowed = \in_array(
                 $reader->nodeType,
                 static::ALLOWED_NODE_TYPES,
                 true
@@ -86,7 +86,7 @@ class ElementExtractor
                 $attribs[$reader->name] = $reader->value;
             }
 
-            $hasAttribs = count($attribs) !== 0;
+            $hasAttribs = \count($attribs) !== 0;
             if (!$hasAttribs) {
                 $result = [
                     $path[$reader->depth] => [0 => $reader->depth]
@@ -126,23 +126,23 @@ class ElementExtractor
         string $attributesIndex,
         string $valueIndex
     ): void {
-        $name = key($props);
-        $data = current($props);
+        $name = \key($props);
+        $data = \current($props);
         $isSet = isset($data[1]);
         if (!$isSet) {
             $elems[] = [$name => [static::DEPTH => $data[0]]];
         }
 
-        $isArr = $isSet && is_array($data[1]);
+        $isArr = $isSet && \is_array($data[1]);
         if ($isSet && $isArr) {
             $elems[] = [$name => [static::DEPTH => $data[0]]];
 
-            end($elems);
+            \end($elems);
             $elems[key($elems)][$name][$attributesIndex] =
                 $data[1];
         }
         if ($isSet && !$isArr) {
-            end($elems);
+            \end($elems);
             $elems[key($elems)][$name][$valueIndex] = $data[1];
         }
     }

@@ -53,24 +53,24 @@ class PrettyPrintComposer
         $ptr = &$result;
         $isMulti = false;
         foreach ($elems as $elem) {
-            $data = current($elem);
+            $data = \current($elem);
 
             $curr = $data[ElementExtractor::DEPTH];
-            $name = key($elem);
+            $name = \key($elem);
 
             $letDoSearch = $prev !== $curr;
             if ($letDoSearch) {
                 $ptr = &$result;
                 for ($d = $base; $d < $curr; $d++) {
                     $end = 0;
-                    if (count($ptr)) {
-                        end($ptr);
-                        $end = key($ptr);
+                    if (\count($ptr)) {
+                        \end($ptr);
+                        $end = \key($ptr);
                     }
                     if ($isMulti && ($d + 1) === $curr) {
                         $ptr = &$ptr[$end];
-                        end($ptr);
-                        $end = key($ptr);
+                        \end($ptr);
+                        $end = \key($ptr);
                     }
 
                     $ptr = &$ptr[$end];
@@ -99,24 +99,24 @@ class PrettyPrintComposer
             /* Order of IF operators is most important */
             $isMulti = false;
             if (
-                key_exists($name, $ptr) &&
-                is_array($ptr[$name]) &&
-                key_exists(0, $ptr[$name])
+                \key_exists($name, $ptr) &&
+                \is_array($ptr[$name]) &&
+                \key_exists(0, $ptr[$name])
             ) {
                 $ptr[$name][] = $new;
                 $isMulti = true;
             }
 
             if (
-                key_exists($name, $ptr) &&
+                \key_exists($name, $ptr) &&
                 (
-                    !is_array($ptr[$name]) ||
-                    !key_exists(0, $ptr[$name])
+                    !\is_array($ptr[$name]) ||
+                    !\key_exists(0, $ptr[$name])
                 )
             ) {
                 $first = $ptr[$name];
                 $ptr[$name] = [];
-                $isStr = is_string($first);
+                $isStr = \is_string($first);
                 if ($isStr) {
                     $ptr[$name][] = [$valueIndex => $first];
                 }
@@ -128,7 +128,7 @@ class PrettyPrintComposer
                 $isMulti = true;
             }
 
-            if (!key_exists($name, $ptr)) {
+            if (!\key_exists($name, $ptr)) {
                 $ptr[$name] = $new;
             }
 

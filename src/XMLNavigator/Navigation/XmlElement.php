@@ -45,8 +45,8 @@ class XmlElement implements IXmlElement, JsonSerializable
         string $seq = Notation::SEQUENCE,
     )
     {
-        $keys = array_flip(array_keys($data));
-        $letThrow = !key_exists($name, $keys);
+        $keys = \array_flip(array_keys($data));
+        $letThrow = !\key_exists($name, $keys);
         if ($letThrow) {
             throw new InvalidArgumentException(
                 'input array MUST BE like' .

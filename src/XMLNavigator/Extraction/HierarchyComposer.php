@@ -62,12 +62,10 @@ class HierarchyComposer
         $hierarchy = [$elementsIndex => []];
         $ptr = &$hierarchy[$elementsIndex];
         foreach ($elems as $i => $elem) {
-            $data = current($elem);
-            /*$logger->debug('будем добавлять элемент' . json_encode($data, JSON_PRETTY_PRINT));*/
-
+            $data = \current($elem);
             $curr = $data[ElementExtractor::DEPTH];
             /*$logger->debug("уровень элемента `$curr`");*/
-            $name = key($elem);
+            $name = \key($elem);
             /*$logger->debug("имя элемента `$name`");*/
 
             $letDoSearch = $prev !== $curr;
@@ -79,9 +77,9 @@ class HierarchyComposer
                     /*$logger->debug("текущий уровень=>`$d`");*/
 
                     $end = 0;
-                    if (count($ptr)) {
-                        end($ptr);
-                        $end = key($ptr);
+                    if (\count($ptr)) {
+                        \end($ptr);
+                        $end = \key($ptr);
                     }
                     /*$logger->debug("последний индекс на текущем уровне=>`$end`");*/
 
@@ -103,7 +101,7 @@ class HierarchyComposer
             $ii = $i + 1;
             if (
                 isset($elems[$ii])
-                && current($elems[$ii])[ElementExtractor::DEPTH] > $curr
+                && \current($elems[$ii])[ElementExtractor::DEPTH] > $curr
             ) {
                 $new[$elementsIndex] = [];
             }

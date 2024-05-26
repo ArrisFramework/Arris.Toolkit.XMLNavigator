@@ -60,7 +60,7 @@ class XmlConverter implements IXmlConverter, \JsonSerializable
         string $xmlUri = '',
     ): array {
         $isPrevious = $this->isPrevious($xmlText, $xmlUri);
-        if (!$isPrevious || !count($this->prettyXml)) {
+        if (!$isPrevious || !\count($this->prettyXml)) {
             $this->prettyXml =
                 FastXmlToArray::prettyPrint(
                     $xmlText,
@@ -84,7 +84,7 @@ class XmlConverter implements IXmlConverter, \JsonSerializable
         string $xmlUri = '',
     ): array {
         $isPrevious = $this->isPrevious($xmlText, $xmlUri);
-        if (!$isPrevious || !count($this->xmlStructure)) {
+        if (!$isPrevious || !\count($this->xmlStructure)) {
             $this->xmlStructure =
                 FastXmlToArray::convert(
                     $xmlText,

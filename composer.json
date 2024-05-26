@@ -1,0 +1,38 @@
+{
+    "name": "karelwintersky/arris.xml-navigator",
+    "description": "Easy XML to PHP array conversion and fast XML streaming conversion",
+    "type": "library",
+    "require": {
+        "ext-xmlreader": "*",
+        "ext-libxml": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Nikilay Volkhin",
+            "email": "ulfnew@gmail.com",
+            "role": "Creator"
+        },
+        {
+            "name": "Karel Wintersky",
+            "email": "karel.wintersky@yandex.ru",
+            "role": "Developer"
+        }
+    ],
+    "replace": {
+        "sbwerewolf/xml-navigator" : "*",
+        "sbwerewolf/language-specific": "*",
+        "sbwerewolf/json-serialize-trait": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Arris\\Toolkit": "src/"
+        }
+    },
+    "scripts": {
+        "test": "php ./vendor/phpunit/phpunit/phpunit --coverage-html build/coverage-report --debug"
+    }
+}

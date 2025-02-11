@@ -23,8 +23,7 @@
     "require": {
         "php": "8.*",
         "ext-xmlreader": "*",
-        "ext-libxml": "*",
-        "karelwintersky/arris.entity": "^0.9.6 | 1.*"
+        "ext-libxml": "*"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5"
@@ -33,10 +32,5 @@
         "sbwerewolf/xml-navigator" : "*",
         "sbwerewolf/language-specific": "*",
         "sbwerewolf/json-serialize-trait": "*"
-    },
-    "config": {
-        "platform": {
-            "php": "8.3"
-        }
     }
 }

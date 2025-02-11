@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Arris\Toolkit\XMLNavigator\Navigation;
 
-use Arris\Entity\Handler\ArrayHandler;
-use Arris\Entity\Handler\IArrayHandler;
 use Arris\Toolkit\XMLNavigator\General\Notation;
+use Arris\Toolkit\XMLNavigator\Handlers\ArrayHandler;
+use Arris\Toolkit\XMLNavigator\Handlers\IArrayHandler;
 use Arris\Toolkit\XMLNavigator\JsonSerializeTrait;
 use Generator;
 use InvalidArgumentException;

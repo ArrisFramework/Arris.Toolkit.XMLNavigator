@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-
 use PHPUnit\Framework\TestCase;
 use Arris\Toolkit\XMLNavigator\Convertation\FastXmlToArray;
 use Arris\Toolkit\XMLNavigator\Convertation\XmlConverter;

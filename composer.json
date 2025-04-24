@@ -1,5 +1,5 @@
 {
-    "name": "karelwintersky/arris.xml-navigator",
+    "name": "karelwintersky/arris.toolkit.xml-navigator",
     "description": "Easy XML to PHP array conversion and fast XML streaming conversion",
     "type": "library",
     "authors": [
